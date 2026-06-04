@@ -148,7 +148,7 @@ Opens at: **http://localhost:8501**
 
 ## 🗺️ Phase Roadmap
 
-### ✅ Phase 1 (Current)
+### ✅ Phase 1
 - [x] Data preprocessing & cleaning
 - [x] Feature engineering (rolling stats, volatility index)
 - [x] Individual crop EDA (6 chart types per dataset)
@@ -158,12 +158,11 @@ Opens at: **http://localhost:8501**
 - [x] Streamlit interactive dashboard
 - [x] Professional project website
 
-### 🔜 Phase 2 (Upcoming)
-- [ ] Linear Regression for price prediction
-- [ ] Random Forest / Decision Tree classification
-- [ ] ARIMA / Prophet time-series forecasting
-- [ ] Scikit-learn model pipeline
-- [ ] Model evaluation metrics
+### 🔜 Phase 2 
+- [ ] More data added for better evaluation
+- [ ] Power Bi intigration 
+- [ ] Multi language support
+- [ ] AI chatbot for user guidance
 
 ---
 
