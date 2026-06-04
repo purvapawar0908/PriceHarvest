@@ -1,0 +1,86 @@
+======================================================================
+  PriceHarvest – Price Intelligence Report
+  Generated: 09 Mar 2026 17:07
+======================================================================
+
+── DATASET-LEVEL INSIGHTS ──────────────────────────────────────────
+
+▶  WHEAT – HARYANA
+   • Wheat prices in Haryana average ₹23.24/kg (median ₹24.25/kg).
+   • Best months to sell Wheat in Haryana: April, May.
+   • Avoid selling in May, April — historically lowest prices.
+   • Highest ever recorded price: ₹24.30/kg on 04 Apr 2025.
+   • Price behaviour is highly stable (CV = 5.9%).
+   • Market with highest average price: New Grain Market(Main), Karnal.
+
+▶  TOMATO – HARYANA
+   • Tomato prices in Haryana average ₹22.13/kg (median ₹20.00/kg).
+   • Best months to sell Tomato in Haryana: August, July, November.
+   • Avoid selling in May, April — historically lowest prices.
+   • Highest ever recorded price: ₹120.00/kg on 28 Jul 2023.
+   • Price behaviour is highly volatile (CV = 64.7%).
+   • Market with highest average price: Gharaunda Apmc.
+
+▶  ONION – HARYANA
+   • Onion prices in Haryana average ₹20.58/kg (median ₹18.00/kg).
+   • Best months to sell Onion in Haryana: November, September, October.
+   • Avoid selling in May, April — historically lowest prices.
+   • Highest ever recorded price: ₹60.00/kg on 01 Nov 2023.
+   • Price behaviour is highly volatile (CV = 44.3%).
+   • Market with highest average price: Gharaunda.
+
+▶  WHEAT – MUMBAI
+   • Wheat prices in Mumbai average ₹42.73/kg (median ₹44.00/kg).
+   • Best months to sell Wheat in Mumbai: November, January, October.
+   • Avoid selling in May, December — historically lowest prices.
+   • Highest ever recorded price: ₹45.50/kg on 30 Mar 2024.
+   • Price behaviour is highly stable (CV = 5.4%).
+   • Market with highest average price: Mumbai.
+
+▶  TOMATO – MUMBAI
+   • Tomato prices in Mumbai average ₹24.17/kg (median ₹18.00/kg).
+   • Best months to sell Tomato in Mumbai: July, August, December.
+   • Avoid selling in April, May — historically lowest prices.
+   • Highest ever recorded price: ₹95.00/kg on 20 Jul 2023.
+   • Price behaviour is highly volatile (CV = 71.8%).
+   • Market with highest average price: Mumbai Apmc.
+
+▶  ONION – MUMBAI
+   • Onion prices in Mumbai average ₹18.71/kg (median ₹15.50/kg).
+   • Best months to sell Onion in Mumbai: November, October, September.
+   • Avoid selling in April, May — historically lowest prices.
+   • Highest ever recorded price: ₹48.50/kg on 08 Nov 2024.
+   • Price behaviour is highly volatile (CV = 49.8%).
+   • Market with highest average price: Vashi New Mumbai.
+
+── COMPARATIVE INSIGHTS ────────────────────────────────────────────
+
+  → Most stable crop: Wheat in Mumbai (CV = 5.4%).
+  → Most volatile crop: Tomato in Mumbai (CV = 71.8%).
+  → Wheat is cheaper in Haryana compared to Mumbai.
+  → Tomato is cheaper in Haryana compared to Mumbai.
+  → Onion is cheaper in Mumbai compared to Haryana.
+  → Highest average Wheat price market: Mumbai.
+  → Highest average Tomato price market: Gharaunda Apmc.
+  → Highest average Onion price market: Gharaunda.
+
+── ANALYTICAL Q&A ──────────────────────────────────────────────────
+
+  Q: Which crop-state shows the highest price volatility?
+  A: Tomato in Mumbai (CV = 71.8%)
+
+  Q: Which market gives the highest average Tomato price?
+  A: Gharaunda Apmc (Haryana)
+
+  Q: Which state has cheaper Wheat?
+  A: Haryana — avg ₹23.24/kg vs ₹42.73/kg
+
+  Q: What is the best month to sell Onion (both states combined)?
+  A: November
+
+  Q: What is the highest single price ever recorded?
+  A: ₹120.00/kg — Tomato at Gharaunda on 28 Jul 2023
+
+  Q: Which market has the most price records (most active)?
+  A: New Grain Market(Main), Karnal
+

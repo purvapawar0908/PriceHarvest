@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PriceHarvest — Crop Price Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<style>
+#ph-chat-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+width:70px;
+height:70px;
+border-radius:50%;
+background:#2e7d32;
+color:white;
+border:none;
+font-size:32px;
+cursor:pointer;
+z-index:999999999;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
+
+#ph-chat-container{
+position:fixed;
+bottom:100px;
+right:20px;
+width:360px;
+height:520px;
+background:white;
+border-radius:15px;
+overflow:hidden;
+display:none;
+flex-direction:column;
+z-index:999999999;
+font-family:Arial;
+box-shadow:0 5px 20px rgba(0,0,0,0.4);
+}
+
+#ph-chat-header{
+background:#2e7d32;
+color:white;
+padding:15px;
+font-size:20px;
+font-weight:bold;
+}
+
+#ph-chat-messages{
+flex:1;
+padding:10px;
+overflow-y:auto;
+background:#f5f5f5;
+}
+
+.ph-msg{
+margin:10px 0;
+padding:10px;
+border-radius:10px;
+max-width:80%;
+line-height:1.5;
+}
+
+.user-msg{
+background:#c8e6c9;
+margin-left:auto;
+}
+
+.bot-msg{
+background:white;
+border:1px solid #ddd;
+}
+
+#ph-chat-input-area{
+display:flex;
+border-top:1px solid #ddd;
+}
+
+#ph-chat-input{
+flex:1;
+padding:12px;
+border:none;
+outline:none;
+font-size:16px;
+background:white;
+color:black;
+caret-color:black;
+}
+
+#ph-chat-input::placeholder{
+color:#777;
+}
+
+#ph-send-btn{
+background:#2e7d32;
+color:white;
+border:none;
+padding:0 20px;
+cursor:pointer;
+}
+
+.quick-btn{
+border:none;
+background:#e8f5e9;
+padding:8px 12px;
+border-radius:20px;
+cursor:pointer;
+font-size:13px;
+}
+</style>
+
+<button id="ph-chat-btn">
+💬
+</button>
+
+<div id="ph-chat-container">
+
+<div id="ph-chat-header">
+🌾 PriceHarvest AI
+</div>
+
+<div id="ph-chat-messages">
+
+<div class="ph-msg bot-msg" id="ph-initial-msg">
+Hello! I’m PriceHarvest AI 🌾
+</div>
+
+</div>
+
+<div id="ph-chat-input-area">
+
+<input
+type="text"
+id="ph-chat-input"
+placeholder="Ask something..."
+>
+
+<button id="ph-send-btn">
+Send
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const chatBtn =
+document.getElementById("ph-chat-btn");
+
+const chatContainer =
+document.getElementById("ph-chat-container");
+
+const sendBtn =
+document.getElementById("ph-send-btn");
+
+const input =
+document.getElementById("ph-chat-input");
+
+const messages =
+document.getElementById("ph-chat-messages");
+
+chatBtn.addEventListener(
+"click",
+function(){
+
+if(
+chatContainer.style.display==="flex"
+){
+
+chatContainer.style.display="none";
+
+}
+else{
+
+chatContainer.style.display="flex";
+
+setTimeout(() => {
+
+input.focus();
+
+},200);
+
+}
+
+}
+);
+
+document.addEventListener(
+"click",
+function(event){
+
+const isClickInsideChat =
+chatContainer.contains(event.target);
+
+const isChatButton =
+chatBtn.contains(event.target);
+
+if(
+!isClickInsideChat &&
+!isChatButton
+){
+
+chatContainer.style.display="none";
+
+}
+
+}
+);
+
+function addMessage(text,type){
+
+const msg =
+document.createElement("div");
+
+msg.classList.add("ph-msg");
+msg.classList.add(type);
+
+msg.innerHTML=text;
+
+messages.appendChild(msg);
+
+setTimeout(() => {
+
+messages.scrollTop =
+messages.scrollHeight;
+
+},100);
+
+}
+
+async function askAI(message){
+
+try{
+
+const response = await fetch(
+`https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=AIzaSyAmfspr7UGkYLZ9flfNUJ-w8ngRfNubmds`,
+{
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+contents:[
+{
+parts:[
+{
+text:`
+You are PriceHarvest AI.
+
+You are the AI assistant of the PriceHarvest agricultural analytics website.
+
+Support:
+- English
+- Hindi
+- Marathi
+
+Help users understand:
+- Onion trends
+- Tomato trends
+- Wheat trends
+- graphs
+- charts
+- dashboard insights
+- agriculture
+
+Keep replies:
+- short
+- natural
+- conversational
+- easy to understand
+
+Avoid:
+- long paragraphs
+- essay style replies
+- numbered lists unless needed
+
+Reply in same language as user.
+
+User:
+${message}
+`
+}
+]
+}
+]
+
+})
+
+}
+);
+
+const data =
+await response.json();
+
+console.log(data);
+
+if(data.candidates){
+
+return data.candidates[0]
+.content.parts[0].text;
+
+}
+else{
+
+return "AI temporarily unavailable 😄";
+
+}
+
+}
+catch(error){
+
+console.log(error);
+
+return "Connection issue 😭";
+
+}
+
+}
+
+async function sendMessage(){
+
+const text =
+input.value.trim();
+
+if(!text) return;
+
+const lowerText =
+text.toLowerCase();
+
+addMessage(
+text,
+"user-msg"
+);
+
+input.value="";
+
+if(
+lowerText==="hi" ||
+lowerText==="hello" ||
+lowerText==="hey"
+){
+
+addMessage(
+"Hey! 👋 What can I help you with?",
+"bot-msg"
+);
+
+const quickOptions =
+document.createElement("div");
+
+quickOptions.innerHTML = `
+<div style="padding:10px; display:flex; flex-wrap:wrap; gap:8px;">
+
+<button class="quick-btn">
+📈 Onion Trends
+</button>
+
+<button class="quick-btn">
+🍅 Tomato Prices
+</button>
+
+<button class="quick-btn">
+🌾 Wheat Analysis
+</button>
+
+<button class="quick-btn">
+📊 Explain Dashboard
+</button>
+
+</div>
+`;
+
+messages.appendChild(
+quickOptions
+);
+
+document.querySelectorAll(".quick-btn")
+.forEach(button => {
+
+button.onclick = function(){
+
+input.value =
+button.innerText;
+
+input.focus();
+
+};
+
+});
+
+return;
+
+}
+
+const reply =
+await askAI(text);
+
+addMessage(
+reply,
+"bot-msg"
+);
+
+}
+
+sendBtn.onclick =
+sendMessage;
+
+input.addEventListener(
+"keypress",
+function(e){
+
+if(e.key==="Enter"){
+
+sendMessage();
+
+}
+
+}
+);
+
+</script>
+<body>
+
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <!-- LOADER -->
+    <div class="loader" id="loader">
+        <div class="loader-inner">
+            <div class="loader-wheat">🌾</div>
+            <div class="loader-bar">
+                <div class="loader-fill" id="loaderFill"></div>
+            </div>
+            <div class="loader-label">Loading PriceHarvest</div>
+        </div>
+    </div>
+
+   
+<!-- NAV -->
+<nav id="navbar">
+    <div class="nav-inner">
+
+        <a class="nav-logo" href="#">
+            <span>🌾</span>
+            <span>PriceHarvest</span>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#eda">EDA</a></li>
+            <li><a href="#dataset">Dataset</a></li>
+            <li><a href="#insights">Insights</a></li>
+        </ul>
+
+            <!-- Custom Language Switcher -->
+            <div class="lang-switcher" id="langSwitcher">
+                <button class="lang-btn" id="langBtn" aria-label="Change language">
+                    <svg class="lang-globe" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    <span class="lang-current" id="langCurrent">EN</span>
+                    <svg class="lang-chevron" width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6l4 4 4-4"/></svg>
+                </button>
+                <div class="lang-dropdown" id="langDropdown">
+                    <button class="lang-opt active" data-lang="en" data-label="EN">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                        <svg class="lang-check" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l4 4 6-7"/></svg>
+                    </button>
+                    <button class="lang-opt" data-lang="hi" data-label="HI">
+                        <span class="lang-flag">🇮🇳</span>
+                        <span class="lang-name">हिन्दी</span>
+                        <svg class="lang-check" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l4 4 6-7"/></svg>
+                    </button>
+                    <button class="lang-opt" data-lang="mr" data-label="MR">
+                        <span class="lang-flag">🇮🇳</span>
+                        <span class="lang-name">मराठी</span>
+                        <svg class="lang-check" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l4 4 6-7"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hidden Google Translate container – no visual element appears -->
+            <div id="google_translate_element" style="position: absolute; top: -9999px; left: -9999px; opacity: 0; pointer-events: none; width: 0; height: 0;"></div>
+            <button class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <canvas class="hero-canvas" id="heroCanvas"></canvas>
+        <div class="hero-noise"></div>
+        <div class="hero-content">
+            <div class="hero-badge slide-up" style="--i:0">
+                <span class="badge-dot"></span> BTech Minor Project &nbsp;·&nbsp; Data Science &nbsp;·&nbsp; 2025–26
+            </div>
+            <h1 class="hero-title">
+                <span class="tline slide-up" style="--i:1">Crop Price</span>
+                <span class="tline tline-em slide-up" style="--i:2"><em>Analysis</em> &amp;</span>
+                <span class="tline slide-up" style="--i:3">Trend Identification</span>
+            </h1>
+            <p class="hero-sub slide-up" style="--i:4">
+                Three years of historical mandi data — Onion, Tomato & Wheat across explored through EDA , Time-series analysis & Power BI.
+            </p>
+            <div class="hero-actions slide-up" style="--i:5">
+                <a href="#dashboard" class="btn-primary magnetic">
+                    <span class="btn-bg"></span>
+                    <span class="btn-text">Power BI Dashboard</span>
+                    <span class="btn-icon">📊</span>
+                </a>
+                <a href="#eda" class="btn-ghost">
+                    Explore Analysi
+                    <span class="btn-arrow">→</span>
+                </a>
+                <a href="#dataset" class="btn-ghost">
+                    View Dataset
+                    <span class="btn-arrow">→</span>
+                </a>
+
+</div>
+            <div class="hero-stats slide-up" style="--i:6">
+                <div class="hstat"><span class="hstat-n" data-target="7497">0</span><span class="hstat-l">Price Records</span></div>
+                <div class="hstat-div"></div>
+                <div class="hstat"><span class="hstat-n" data-target="3">0</span><span class="hstat-l">Crops</span></div>
+                <div class="hstat-div"></div>
+                <div class="hstat"><span class="hstat-n" data-target="3">0</span><span class="hstat-l">Years</span></div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="sec-tag reveal-fade">01 · About</div>
+            <h2 class="sec-title reveal-up">What is <em>PriceHarvest?</em></h2>
+            <div class="about-grid">
+                <div class="about-copy">
+                    <p class="reveal-up" style="--d:.1s">Agricultural crop prices fluctuate due to seasonal variations, supply-demand dynamics, and regional market factors. Understanding these patterns is critical for farmers, traders, and policymakers.</p>
+                    <p class="reveal-up" style="--d:.2s">PriceHarvest analyzes three years of historical mandi price data from the <strong>Agmarknet Portal, Government of India</strong> to uncover seasonal patterns, long-term trends, and regional pricing behavior.</p>
+                </div>
+                <div class="feat-panel-wrap reveal-up" style="--d:.15s">
+                    <div class="feat-buttons">
+                        <button class="feat-btn active" data-target="eda">
+                            <span class="feat-icon">📊</span><span class="feat-name">Exploratory Analysis</span>
+                            <svg class="feat-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
+                        </button>
+                        <button class="feat-btn" data-target="trend">
+                            <span class="feat-icon">📈</span><span class="feat-name">Trend Identification</span>
+                            <svg class="feat-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
+                        </button>
+                        <button class="feat-btn" data-target="compare">
+                            <span class="feat-icon">🗺️</span><span class="feat-name">Regional Comparison</span>
+                            <svg class="feat-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
+                        </button>
+                        <button class="feat-btn" data-target="insights">
+                            <span class="feat-icon">💡</span><span class="feat-name">Price Intelligence</span>
+                            <svg class="feat-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
+                        </button>
+                    </div>
+                    <div class="feat-content">
+                        <div class="feat-pane active" id="pane-eda">
+                            <div class="feat-pane-icon">📊</div>
+                            <h4>Exploratory Analysis</h4>
+                            <p>Price distributions, outliers, statistical summaries, histograms, box plots, KDE curves, and market comparison charts across all 3 crops and both states.</p>
+                        </div>
+                        <div class="feat-pane" id="pane-trend">
+                            <div class="feat-pane-icon">📈</div>
+                            <h4>Trend Identification</h4>
+                            <p>Time-series decomposition into trend, seasonal, and residual components. Rolling averages (7/14/30 day) and 30-day linear forecast.</p>
+                        </div>
+                        <div class="feat-pane" id="pane-compare">
+                            <div class="feat-pane-icon">🗺️</div>
+                            <h4>Regional Comparison</h4>
+                            <p>Side-by-side Haryana vs Maharashtra analysis. Violin plots, seasonal heatmaps, and volatility comparison reveal major regional pricing differences.</p>
+                        </div>
+                        <div class="feat-pane" id="pane-insights">
+                            <div class="feat-pane-icon">💡</div>
+                            <h4>Price Intelligence</h4>
+                            <p>Auto-generated narrative insights engine — seasonal peaks, volatility rankings, market anomalies, and cross-state pricing gaps summarized clearly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- POWER BI DASHBOARD SECTION -->
+    <section class="dashboard-section" id="dashboard">
+        <div class="container">
+            <div class="sec-tag reveal-fade">
+                02 · Interactive Analytics
+            </div>
+            <h2 class="sec-title reveal-up">
+                Power BI <em>Dashboard</em>
+            </h2>
+
+    <p class="sec-sub reveal-up" style="--d:.1s">
+        Explore crop price trends, city comparisons, seasonal fluctuations and market insights through interactive Power BI visualizations.
+    </p>
+
+</div>
+
+                <!-- ── CAROUSEL ── -->
+        <div class="bi-carousel-wrapper">
+            <button class="bi-arrow bi-prev" aria-label="Previous">&#8249;</button>
+
+            <div class="bi-track-container">
+                <div class="bi-track" id="biTrack">
+                    <!-- Slide 1 -->
+                    <div class="bi-slide">
+                        <img src="bi_images/bi1.png" alt="Year-wise Trend Analysis of Onion Modal Prices" class="bi-img" loading="lazy">
+                        <p class="bi-caption"><span class="bi-num">01 / 11</span> Year-wise Trend Analysis of Onion Modal Prices and District-wise Average Price Distribution</p>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="bi-slide">
+                        <img src="bi_images/bi2.png" alt="Annual Onion Price Trend" class="bi-img" loading="lazy">
+                        <p class="bi-caption"><span class="bi-num">02 / 11</span> Annual Onion Price Trend with Comparative Average Modal Prices Across Districts</p>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="bi-slide">
+                        <img src="bi_images/bi3.png" alt="Tomato Modal Price Trend Analysis" class="bi-img" loading="lazy">
+                        <p class="bi-caption"><span class="bi-num">03 / 11</span> Tomato Modal Price Trend Analysis (2023–2025) and District-wise Average Prices</p>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="bi-slide">
+                        <img src="bi_images/bi4.png" alt="Wheat Price Trend Analysis" class="bi-img" loading="lazy">
+                        <p class="bi-caption"><span class="bi-num">04 / 11</span> Wheat Price Trend Analysis by Year and District-wise Average Modal Price Comparison</p>
+                    </div>
+                    <!-- Slide 5 -->
+                    <div class="bi-slide">
+                        <img src="bi_images/bi5.png" alt="Daily Wheat Modal Price Fluctuation" class="bi-img" loading="lazy">
+                        <p class="bi-caption"><span class="bi-num">05 / 11</span> Daily Wheat Modal Price Fluctuation Analysis with District-wise Average Prices</p>
+                    </div>
+                    <!-- Slide 6 -->
+                    <div class="bi-slide">
+                        <img src="bi_images/bi6.png" alt="Daily Tomato Price Trend" class="bi-img" loading="lazy">
+                        <p class="bi-caption"><span class="bi-num">06 / 11</span> Daily Tomato Price Trend Analysis and District-wise Average Modal Price Comparison</p>
+                    </div>
+                    <!-- Slide 7 -->
+                    <div class="bi-slide">
+                        <img src="bi_images/bi7.png" alt="Daily Onion Modal Price Variation" class="bi-img" loading="lazy">
+                        <p class="bi-caption"><span class="bi-num">07 / 11</span> Daily Onion Modal Price Variation with District-wise Average Price Distribution</p>
+                    </div>
+                    <!-- Slide 8 -->
+                    <div class="bi-slide">
+                        <img src="bi_images/bi8.png" alt="Comparative Daily Price Trend" class="bi-img" loading="lazy">
+                        <p class="bi-caption"><span class="bi-num">08 / 11</span> Comparative Daily Price Trend Analysis of Onion, Tomato, and Wheat Across Districts</p>
+                    </div>
+                    <!-- Slide 9 -->
+                    <div class="bi-slide">
+                        <img src="bi_images/bi9.png" alt="Mumbai District Commodity Price Analysis" class="bi-img" loading="lazy">
+                        <p class="bi-caption"><span class="bi-num">09 / 11</span> Mumbai District Commodity Price Analysis: Daily Trends and Average Modal Prices</p>
+                    </div>
+                    <!-- Slide 10 -->
+                    <div class="bi-slide">
+                        <img src="bi_images/bi10.png" alt="Kolhapur District Commodity Price Analysis" class="bi-img" loading="lazy">
+                        <p class="bi-caption"><span class="bi-num">10 / 11</span> Kolhapur District Commodity Price Analysis: Daily Modal Price Trends and Commodity Comparison</p>
+                    </div>
+                    <!-- Slide 11 -->
+                    <div class="bi-slide">
+                        <img src="bi_images/bi11.png" alt="Nashik District Commodity Price Analysis" class="bi-img" loading="lazy">
+                        <p class="bi-caption"><span class="bi-num">11 / 11</span> Nashik District Commodity Price Analysis: Commodity-wise Daily Trends and Average Prices</p>
+                    </div>
+                </div>
+                <!-- /bi-track -->
+            </div>
+            <!-- /bi-track-container -->
+
+            <button class="bi-arrow bi-next" aria-label="Next">&#8250;</button>
+        </div>
+        <!-- /bi-carousel-wrapper -->
+
+        <!-- Dot indicators -->
+        <div class="bi-dots" id="biDots"></div>
+
+        <!-- Thumbnail strip -->
+        <div class="bi-thumb-strip" id="biThumbs"></div>
+    </section>
+
+
+    <!-- ── LIGHTBOX ── -->
+    <div class="bi-lightbox" id="biLightbox" role="dialog" aria-modal="true">
+        <button class="bi-lb-close" id="biLbClose" aria-label="Close">&#x2715;</button>
+        <button class="bi-lb-arrow bi-lb-prev" id="biLbPrev" aria-label="Previous">&#8249;</button>
+        <div class="bi-lb-content">
+            <img src="" alt="" id="biLbImg">
+            <p class="bi-lb-caption" id="biLbCaption"></p>
+        </div>
+        <button class="bi-lb-arrow bi-lb-next" id="biLbNext" aria-label="Next">&#8250;</button>
+    </div>
+    <div class="bi-lb-overlay" id="biLbOverlay"></div>
+
+    
+    
+    <!-- EDA -->
+    <section class="eda" id="eda">
+        <div class="container">
+            <div class="sec-tag reveal-fade">03 · EDA Visualizations</div>
+            <h2 class="sec-title reveal-up">Exploratory <em>Data Analysis</em></h2>
+            <p class="sec-sub reveal-up" style="--d:.1s">Filter by category , click any chart to expand fullscreen.</p>
+
+            <div class="eda-controls reveal-up" style="--d:.15s">
+                <div class="eda-filter-group">
+                    <span class="eda-filter-label">Category</span>
+                    <div class="eda-filters" id="categoryFilters">
+                        <button class="eda-filter active" data-cat="all">All Charts</button>
+                        <button class="eda-filter" data-cat="distribution">Distribution</button>
+                        <button class="eda-filter" data-cat="trend">Price Trends</button>
+                        <button class="eda-filter" data-cat="comparison">State Comparison</button>
+                        <button class="eda-filter" data-cat="seasonal">Seasonal</button>
+                        <button class="eda-filter" data-cat="correlation">Correlation</button>
+                    </div>
+                </div>
+                <div class="eda-view-toggle">
+                    <button class="view-btn active" id="viewGrid" title="Grid view">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+                    </button>
+                    <button class="view-btn" id="viewList" title="List view">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="2" width="14" height="3" rx="1"/><rect x="1" y="7" width="14" height="3" rx="1"/><rect x="1" y="12" width="14" height="3" rx="1"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="eda-count reveal-fade" style="--d:.2s">
+                Showing <span id="chartCount">8</span> charts
+            </div>
+
+            <div class="viz-masonry" id="vizGrid">
+                <div class="vcard span2" data-cat="trend" data-crop="all">
+                    <div class="vcard-img" data-src="images/02_monthly_price_trend.png">
+                        <img src="images/02_monthly_price_trend.png" alt="Monthly Price Trend" loading="lazy" />
+                        <div class="vcard-hover"><span>⤢ Expand</span></div>
+                    </div>
+                    <div class="vcard-foot">
+                        <span class="vcard-n">01</span>
+                        <div>
+                            <h4>Monthly Price Trend (2023–2025)</h4>
+                            <p>Tomato spikes dramatically in Jul 2023 and mid-2024. Wheat stays flat. Onion rises every autumn.</p>
+                            <div class="vcard-tags"><span class="vtag trend-tag">Price Trends</span><span class="vtag">All Crops</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vcard" data-cat="distribution" data-crop="all">
+                    <div class="vcard-img" data-src="images/01_price_distribution_boxplot.png">
+                        <img src="images/01_price_distribution_boxplot.png" alt="Price Distribution Boxplot" loading="lazy" />
+                        <div class="vcard-hover"><span>⤢ Expand</span></div>
+                    </div>
+                    <div class="vcard-foot">
+                        <span class="vcard-n">02</span>
+                        <div>
+                            <h4>Price Distribution Box Plot</h4>
+                            <p>Tomato has extreme outliers reaching ₹12,000/Qtl. Wheat boxes are very tight — confirming MSP stability.</p>
+                            <div class="vcard-tags"><span class="vtag dist-tag">Distribution</span><span class="vtag">All Crops</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vcard" data-cat="comparison" data-crop="all">
+                    <div class="vcard-img" data-src="images/04_state_comparison_bar.png">
+                        <img src="images/04_state_comparison_bar.png" alt="State Comparison" loading="lazy" />
+                        <div class="vcard-hover"><span>⤢ Expand</span></div>
+                    </div>
+                    <div class="vcard-foot">
+                        <span class="vcard-n">03</span>
+                        <div>
+                            <h4>Haryana vs Maharashtra — Avg Price</h4>
+                            <p>Wheat in Mumbai costs 84% more than Haryana. Onion is cheaper in Maharashtra; Tomato cheaper in Haryana.</p>
+                            <div class="vcard-tags"><span class="vtag comp-tag">State Comparison</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vcard" data-cat="distribution" data-crop="all">
+                    <div class="vcard-img" data-src="images/05_price_volatility.png">
+                        <img src="images/05_price_volatility.png" alt="Price Volatility" loading="lazy" />
+                        <div class="vcard-hover"><span>⤢ Expand</span></div>
+                    </div>
+                    <div class="vcard-foot">
+                        <span class="vcard-n">04</span>
+                        <div>
+                            <h4>Price Volatility by Crop</h4>
+                            <p>Tomato std dev ≈ ₹1,750. Wheat is the most stable crop across both states with CV just 5.4%.</p>
+                            <div class="vcard-tags"><span class="vtag dist-tag">Distribution</span><span class="vtag">Volatility</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vcard" data-cat="seasonal" data-crop="all">
+                    <div class="vcard-img" data-src="images/03_seasonal_monthly_pattern.png">
+                        <img src="images/03_seasonal_monthly_pattern.png" alt="Seasonal Pattern" loading="lazy" />
+                        <div class="vcard-hover"><span>⤢ Expand</span></div>
+                    </div>
+                    <div class="vcard-foot">
+                        <span class="vcard-n">05</span>
+                        <div>
+                            <h4>Seasonal Monthly Pattern</h4>
+                            <p>Tomato crashes in May, peaks in July–August. Onion rises in autumn (Oct–Nov). Wheat flat year-round.</p>
+                            <div class="vcard-tags"><span class="vtag seas-tag">Seasonal</span><span class="vtag">All Crops</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vcard" data-cat="correlation" data-crop="all">
+                    <div class="vcard-img" data-src="images/07_correlation_heatmap.png">
+                        <img src="images/07_correlation_heatmap.png" alt="Correlation Heatmap" loading="lazy" />
+                        <div class="vcard-hover"><span>⤢ Expand</span></div>
+                    </div>
+                    <div class="vcard-foot">
+                        <span class="vcard-n">06</span>
+                        <div>
+                            <h4>Price Correlation Matrix</h4>
+                            <p>Min ↔ Modal = r 0.94. Very high correlation confirms trading happens close to the minimum quoted price.</p>
+                            <div class="vcard-tags"><span class="vtag corr-tag">Correlation</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vcard span2" data-cat="seasonal" data-crop="all">
+                    <div class="vcard-img" data-src="images/08_seasonal_heatmap.png">
+                        <img src="images/08_seasonal_heatmap.png" alt="Seasonal Heatmap" loading="lazy" />
+                        <div class="vcard-hover"><span>⤢ Expand</span></div>
+                    </div>
+                    <div class="vcard-foot">
+                        <span class="vcard-n">07</span>
+                        <div>
+                            <h4>Seasonal Heatmap — Month × Year</h4>
+                            <p>Year × Month grid shows Tomato's Jul 2023 extreme at ₹6,405/Qtl as a vivid dark-red hotspot. Onion peaks consistently each November.</p>
+                            <div class="vcard-tags"><span class="vtag seas-tag">Seasonal</span><span class="vtag">Heatmap</span><span class="vtag">All Crops</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vcard span2" data-cat="trend" data-crop="all">
+                    <div class="vcard-img" data-src="images/09_price_spread_band.png">
+                        <img src="images/09_price_spread_band.png" alt="Price Spread Band" loading="lazy" />
+                        <div class="vcard-hover"><span>⤢ Expand</span></div>
+                    </div>
+                    <div class="vcard-foot">
+                        <span class="vcard-n">08</span>
+                        <div>
+                            <h4>Min–Max Price Spread Band (2023–2025)</h4>
+                            <p>The band between minimum and maximum price shows how trading ranges shift. Wide bands in Tomato signal uncertainty; narrow Wheat bands reflect controlled procurement.</p>
+                            <div class="vcard-tags"><span class="vtag trend-tag">Price Trends</span><span class="vtag">Spread</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="eda-empty" id="edaEmpty" style="display:none">
+                <span>🔍</span>
+                <p>No charts match this filter.</p>
+            </div>
+
+            <div class="eda-summary reveal-up" style="--d:.1s">
+                <div class="esum-item">
+                    <span class="esum-val">₹12,000</span>
+                    <span class="esum-lbl">Highest ever price (Tomato, Jul 2023)</span>
+                </div>
+                <div class="esum-div"></div>
+                <div class="esum-item">
+                    <span class="esum-val">84%</span>
+                    <span class="esum-lbl">Mumbai wheat premium over Haryana</span>
+                </div>
+                <div class="esum-div"></div>
+                <div class="esum-item">
+                    <span class="esum-val">r = 0.94</span>
+                    <span class="esum-lbl">Min ↔ Modal price correlation</span>
+                </div>
+                <div class="esum-div"></div>
+                <div class="esum-item">
+                    <span class="esum-val">Nov</span>
+                    <span class="esum-lbl">Best month for Onion prices</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- DATASET -->
+    <section class="dataset" id="dataset">
+        <div class="container">
+            <div class="sec-tag reveal-fade">04 · Dataset</div>
+            <h2 class="sec-title reveal-up">Understanding the <em>Data</em></h2>
+            <p class="sec-sub reveal-up" style="--d:.1s">Daily wholesale market arrivals from the <strong>Agmarknet Portal, Government of India</strong> — January 2023 to December 2025.</p>
+            <div class="ds-layout">
+                <div class="ds-table-box reveal-up" style="--d:.1s">
+                    <table class="ds-table">
+                        <thead>
+                            <tr>
+                                <th>Column</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>Arrival_Date</code></td>
+                                <td>Date of market price record</td>
+                                <td>04/07/2024</td>
+                            </tr>
+                            <tr>
+                                <td><code>State</code></td>
+                                <td>State of the market</td>
+                                <td>Haryana / Maharashtra</td>
+                            </tr>
+                            <tr>
+                                <td><code>District</code></td>
+                                <td>District within state</td>
+                                <td>Karnal / Mumbai</td>
+                            </tr>
+                            <tr>
+                                <td><code>Market</code></td>
+                                <td>APMC / Mandi name</td>
+                                <td>Gharaunda / Vashi</td>
+                            </tr>
+                            <tr>
+                                <td><code>Commodity</code></td>
+                                <td>Crop name</td>
+                                <td>Onion / Tomato / Wheat</td>
+                            </tr>
+                            <tr>
+                                <td><code>Min_Price</code></td>
+                                <td>Minimum price on that day</td>
+                                <td>₹2,000/Qtl</td>
+                            </tr>
+                            <tr>
+                                <td><code>Max_Price</code></td>
+                                <td>Maximum price on that day</td>
+                                <td>₹4,400/Qtl</td>
+                            </tr>
+                            <tr>
+                                <td><code>Modal_Price</code></td>
+                                <td>Most common transaction price</td>
+                                <td>₹3,200/Qtl</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="crop-stack reveal-up" style="--d:.2s">
+                    <div class="crop-tile tomato">
+                        <div class="ct-top"><span class="ct-emoji">🍅</span><span class="ct-vol-tag">Most Volatile</span></div>
+                        <div class="ct-name">Tomato</div>
+                        <div class="ct-avg">Avg ₹2,213/Qtl</div>
+                        <div class="ct-bar-bg">
+                            <div class="ct-bar-fill" style="width:92%"></div>
+                        </div>
+                        <div class="ct-cv">Volatility CV = 71.8%</div>
+                    </div>
+                    <div class="crop-tile onion">
+                        <div class="ct-top"><span class="ct-emoji">🧅</span><span class="ct-vol-tag">Seasonal</span></div>
+                        <div class="ct-name">Onion</div>
+                        <div class="ct-avg">Avg ₹1,965/Qtl</div>
+                        <div class="ct-bar-bg">
+                            <div class="ct-bar-fill" style="width:65%"></div>
+                        </div>
+                        <div class="ct-cv">Volatility CV = 47%</div>
+                    </div>
+                    <div class="crop-tile wheat">
+                        <div class="ct-top"><span class="ct-emoji">🌾</span><span class="ct-vol-tag">Most Stable</span></div>
+                        <div class="ct-name">Wheat</div>
+                        <div class="ct-avg">Avg ₹3,498/Qtl</div>
+                        <div class="ct-bar-bg">
+                            <div class="ct-bar-fill" style="width:18%"></div>
+                        </div>
+                        <div class="ct-cv">Volatility CV = 5.4%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <div class="lb-backdrop" id="lbBackdrop"></div>
+        <button class="lb-close" id="lbClose">✕</button>
+        <div class="lb-nav lb-prev" id="lbPrev">&#8249;</div>
+        <div class="lb-nav lb-next" id="lbNext">&#8250;</div>
+        <div class="lb-box">
+            <img src="" alt="" id="lbImg" />
+            <div class="lb-caption" id="lbCaption"></div>
+        </div>
+    </div>
+
+    <!-- INSIGHTS -->
+    <section class="insights" id="insights">
+        <div class="container">
+            <div class="sec-tag reveal-fade">05 · Key Insights</div>
+            <h2 class="sec-title reveal-up">What the <em>Data Reveals</em></h2>
+            <div class="ins-grid">
+                <div class="ins-card reveal-up" style="--d:.0s">
+                    <div class="ins-bar" style="background:#EF4444"></div>
+                    <div class="ins-idx">01</div>
+                    <h3>Tomato is the Most Volatile</h3>
+                    <p>Prices spiked to ₹12,000/Qtl in July 2023 — driven by heat damage and monsoon transport disruptions.</p>
+                    <div class="ins-chip" style="--c:#FEE2E2;--t:#DC2626">CV = 71.8% · Mumbai</div>
+                </div>
+                <div class="ins-card reveal-up" style="--d:.08s">
+                    <div class="ins-bar" style="background:#F59E0B"></div>
+                    <div class="ins-idx">02</div>
+                    <h3>Wheat is the Most Stable</h3>
+                    <p>Government MSP support and controlled procurement keep Wheat at the lowest volatility of all crops.</p>
+                    <div class="ins-chip" style="--c:#FEF3C7;--t:#D97706">CV = 5.4% · Both States</div>
+                </div>
+                <div class="ins-card reveal-up" style="--d:.16s">
+                    <div class="ins-bar" style="background:#3B82F6"></div>
+                    <div class="ins-idx">03</div>
+                    <h3>Mumbai Wheat Costs 84% More</h3>
+                    <p>Maharashtra wheat averages ₹4,273/Qtl vs Haryana's ₹2,324 — long-distance transport and market margins.</p>
+                    <div class="ins-chip" style="--c:#DBEAFE;--t:#2563EB">₹2,324 vs ₹4,273</div>
+                </div>
+                <div class="ins-card reveal-up" style="--d:.24s">
+                    <div class="ins-bar" style="background:#8B5CF6"></div>
+                    <div class="ins-idx">04</div>
+                    <h3>Onion Peaks Every November</h3>
+                    <p>Consistently highest in November (post-Kharif) and lowest in April-May, following the Rabi harvest cycle.</p>
+                    <div class="ins-chip" style="--c:#EDE9FE;--t:#7C3AED">Best month: November</div>
+                </div>
+                <div class="ins-card reveal-up" style="--d:.32s">
+                    <div class="ins-bar" style="background:#EF4444"></div>
+                    <div class="ins-idx">05</div>
+                    <h3>Monsoon Pushes Tomato High</h3>
+                    <p>Transport disruptions drive Tomato to annual highs in July–August, before cooling in October–November harvest.</p>
+                    <div class="ins-chip" style="--c:#FEE2E2;--t:#DC2626">Peak: July–August</div>
+                </div>
+                <div class="ins-card reveal-up" style="--d:.4s">
+                    <div class="ins-bar" style="background:#10B981"></div>
+                    <div class="ins-idx">06</div>
+                    <h3>Min–Modal Highly Correlated</h3>
+                    <p>Correlation r = 0.94 between Min and Modal price — most trading happens near the minimum quoted price on thin-supply mandi days.</p>
+                    <div class="ins-chip" style="--c:#D1FAE5;--t:#059669">r = 0.94 correlation</div>
+                </div>
+                <div class="ins-card reveal-up" style="--d:.48s">
+                    <div class="ins-bar" style="background:#EF4444"></div>
+                    <div class="ins-idx">07</div>
+                    <h3>🍅 Tomato — Best & Worst Months</h3>
+                    <p>Haryana peaks in <strong>August (~₹38.5/kg)</strong> and dips in May (~₹8.6/kg). Mumbai peaks in <strong>July (~₹53.2/kg)</strong> and is cheapest in April (~₹13.1/kg).</p>
+                    <div class="ins-chip" style="--c:#FEE2E2;--t:#DC2626">Aug · Haryana &nbsp;|&nbsp; Jul · Mumbai</div>
+                </div>
+                <div class="ins-card reveal-up" style="--d:.56s">
+                    <div class="ins-bar" style="background:#8B5CF6"></div>
+                    <div class="ins-idx">08</div>
+                    <h3>🧅 Onion — Best & Worst Months</h3>
+                    <p>Both states peak in <strong>November</strong> — Haryana (~₹25.4/kg) and Mumbai (~₹30.3/kg) — and bottom out in April–May after Rabi harvest.</p>
+                    <div class="ins-chip" style="--c:#EDE9FE;--t:#7C3AED">Nov · Both States</div>
+                </div>
+                <div class="ins-card reveal-up" style="--d:.64s">
+                    <div class="ins-bar" style="background:#F59E0B"></div>
+                    <div class="ins-idx">09</div>
+                    <h3>🌾 Wheat — Best & Worst Months</h3>
+                    <p>Haryana peaks in <strong>April (~₹23.3/kg)</strong>. Mumbai peaks in <strong>November (~₹43.7/kg)</strong>. Wheat stays stable year-round due to MSP — the difference between best and worst is under ₹2/kg.</p>
+                    <div class="ins-chip" style="--c:#FEF3C7;--t:#D97706">Apr · Haryana &nbsp;|&nbsp; Nov · Mumbai</div>
+                </div>
+                <div class="ins-card reveal-up" style="--d:.72s">
+                    <div class="ins-bar" style="background:#2563EB"></div>
+                    <div class="ins-idx">10</div>
+                    <h3>Interactive Dashboard Exploration</h3>
+                    <p>
+                        Power BI dashboards allow users to explore yearly crop trends, district comparisons, and commodity-wise price movements dynamically using interactive filters.
+                    </p>
+                    <div class="ins-chip" style="--c:#DBEAFE;--t:#2563EB">
+                        Power BI Analytics
+                    </div>
+                </div>
+                <div class="ins-card reveal-up" style="--d:.80s">
+                    <div class="ins-bar" style="background:#059669"></div>
+                    <div class="ins-idx">11</div>
+                    <h3>District-Level Market Intelligence</h3>
+                    <p>
+                        Dashboard visualizations reveal clear pricing differences between districts such as Mumbai, Nashik, and Kolhapur across Onion, Tomato, and Wheat markets.
+                    </p>
+                    <div class="ins-chip" style="--c:#D1FAE5;--t:#059669">
+                        District Comparison
+                    </div>
+                </div>              
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-row">
+            <div class="footer-logo">🌾 PriceHarvest</div>
+            <nav class="footer-nav">
+                <a href="#about">About</a>
+                <a href="#dashboard">Dashboard</a>
+                <a href="#eda">EDA</a>
+                <a href="#dataset">Dataset</a>
+                <a href="#insights">Insights</a>
+            </nav>
+            <div class="footer-copy">Data · Agmarknet Portal, Gov. of India ·</div>
+        </div>
+    </footer>
+
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,hi,mr',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

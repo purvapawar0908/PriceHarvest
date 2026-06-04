@@ -1,0 +1,278 @@
+State,District,Market,Commodity,Variety,Grade,Arrival_Date,Min_Price,Max_Price,Modal_Price,Commodity_Code
+Haryana,Karnal,Asandh,Wheat,Other,FAQ,27/04/2025,2425,2425,2425,1
+Haryana,Karnal,Asandh,Wheat,Other,FAQ,28/04/2025,2425,2426,2425,1
+Haryana,Karnal,Asandh,Wheat,Other,FAQ,12/05/2025,2425,2425,2425,1
+Haryana,Karnal,Asandh,Wheat,Other,FAQ,19/04/2025,2425,2426,2425,1
+Haryana,Karnal,Asandh,Wheat,Other,FAQ,23/04/2025,2425,2426,2425,1
+Haryana,Karnal,Asandh,Wheat,Other,FAQ,08/04/2025,2425,2425,2425,1
+Haryana,Karnal,Asandh,Wheat,Other,FAQ,25/04/2025,2425,2425,2425,1
+Haryana,Karnal,Asandh,Wheat,Other,FAQ,20/04/2025,2425,2425,2425,1
+Haryana,Karnal,Asandh,Wheat,Other,FAQ,24/04/2025,2425,2426,2425,1
+Haryana,Karnal,Asandh,Wheat,Other,FAQ,30/04/2025,2425,2425,2425,1
+Haryana,Karnal,Asandh,Wheat,Other,FAQ,01/05/2025,2425,2425,2425,1
+Haryana,Karnal,Asandh,Wheat,Other,FAQ,08/05/2025,2425,2426,2425,1
+Haryana,Karnal,Asandh,Wheat,Other,FAQ,15/05/2025,2425,2425,2425,1
+Haryana,Karnal,Asandh,Wheat,Other,FAQ,17/04/2025,2425,2425,2425,1
+Haryana,Karnal,Asandh,Wheat,Other,FAQ,18/04/2025,2425,2425,2425,1
+Haryana,Karnal,Asandh,Wheat,Other,FAQ,21/04/2025,2425,2426,2425,1
+Haryana,Karnal,Asandh,Wheat,Other,FAQ,26/04/2025,2425,2426,2425,1
+Haryana,Karnal,Asandh,Wheat,Other,FAQ,29/04/2025,2425,2426,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,05/04/2025,2426,2426,2426,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,13/04/2025,2425,2430,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,17/04/2025,2425,2430,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,19/04/2025,2425,2430,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,25/04/2025,2425,2430,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,30/04/2025,2425,2430,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,12/05/2025,2430,2440,2430,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,13/05/2025,2425,2440,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,21/04/2025,2425,2430,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,12/04/2025,2425,2430,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,04/04/2025,2428,2430,2430,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,08/04/2025,2425,2425,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,09/04/2025,2425,2425,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,20/04/2025,2425,2430,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,22/04/2025,2425,2430,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,06/05/2025,2430,2430,2430,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,10/04/2025,2425,2430,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,18/04/2025,2425,2430,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,23/04/2025,2425,2430,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,29/04/2025,2430,2430,2430,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,05/05/2025,2425,2430,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,07/05/2025,2426,2430,2430,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,01/05/2025,2430,2430,2430,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,11/04/2025,2425,2430,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,14/04/2025,2425,2430,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,16/04/2025,2425,2430,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,24/04/2025,2425,2430,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,26/04/2025,2425,2430,2425,1
+Haryana,Karnal,Gharaunda,Wheat,Wheat,FAQ,28/04/2025,2425,2430,2425,1
+Haryana,Karnal,Indri,Wheat,Wheat,FAQ,16/04/2025,2425,2425,2425,1
+Haryana,Karnal,Indri,Wheat,Wheat,FAQ,12/05/2025,2425,2425,2425,1
+Haryana,Karnal,Indri,Wheat,Wheat,FAQ,17/04/2025,2425,2425,2425,1
+Haryana,Karnal,Indri,Wheat,Wheat,FAQ,19/04/2025,2425,2425,2425,1
+Haryana,Karnal,Indri,Wheat,Wheat,FAQ,26/04/2025,2425,2430,2425,1
+Haryana,Karnal,Indri,Wheat,Wheat,FAQ,18/04/2025,2425,2425,2425,1
+Haryana,Karnal,Indri,Wheat,Wheat,FAQ,11/04/2025,2425,2425,2425,1
+Haryana,Karnal,Indri,Wheat,Wheat,FAQ,14/04/2025,2425,2425,2425,1
+Haryana,Karnal,Indri,Wheat,Wheat,FAQ,22/04/2025,2425,2430,2425,1
+Haryana,Karnal,Indri,Wheat,Wheat,FAQ,25/04/2025,2425,2425,2425,1
+Haryana,Karnal,Indri,Wheat,Wheat,FAQ,01/05/2025,2425,2430,2425,1
+Haryana,Karnal,Indri,Wheat,Wheat,FAQ,02/05/2025,2425,2425,2425,1
+Haryana,Karnal,Indri,Wheat,Wheat,FAQ,09/05/2025,2430,2430,2430,1
+Haryana,Karnal,Indri,Wheat,Wheat,FAQ,21/04/2025,2425,2425,2425,1
+Haryana,Karnal,Indri,Wheat,Wheat,FAQ,12/04/2025,2425,2425,2425,1
+Haryana,Karnal,Indri,Wheat,Wheat,FAQ,15/04/2025,2425,2425,2425,1
+Haryana,Karnal,Indri,Wheat,Wheat,FAQ,24/04/2025,2425,2430,2425,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,16/04/2023,2125,2125,2125,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,20/04/2023,2125,2125,2125,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,01/05/2023,2125,2125,2125,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,02/05/2023,2125,2125,2125,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,11/04/2025,2425,2425,2425,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,16/04/2025,2425,2425,2425,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,20/04/2025,2425,2426,2425,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,08/04/2024,2275,2275,2275,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,09/04/2025,2425,2425,2425,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,30/04/2025,2425,2425,2425,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,28/04/2025,2425,2425,2425,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,18/04/2023,2125,2125,2125,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,28/04/2023,2125,2125,2125,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,01/05/2025,2425,2425,2425,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,10/04/2025,2425,2425,2425,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,12/04/2025,2425,2425,2425,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,13/04/2025,2425,2425,2425,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,14/04/2025,2425,2425,2425,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,15/04/2025,2425,2425,2425,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,18/04/2025,2425,2425,2425,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,02/05/2025,2425,2425,2425,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,25/04/2023,2125,2137,2125,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,09/04/2024,2275,2275,2275,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,19/04/2023,2125,2125,2125,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,22/04/2023,2125,2125,2125,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,23/04/2023,2125,2125,2125,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,26/04/2023,2125,2125,2125,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,27/04/2023,2125,2125,2125,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,30/04/2023,2125,2125,2125,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,17/04/2025,2425,2425,2425,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,25/04/2025,2425,2425,2425,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,17/04/2023,2125,2125,2125,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,29/04/2023,2125,2125,2125,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,21/04/2025,2425,2426,2425,1
+Haryana,Karnal,Jundla,Wheat,Other,FAQ,23/04/2025,2426,2426,2426,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,18/04/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,21/04/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,27/04/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,02/05/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,09/04/2025,2425,2425,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,10/04/2025,2425,2425,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,14/04/2025,2425,2425,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,21/04/2025,2425,2426,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,23/04/2025,2425,2426,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,25/04/2025,2425,2425,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,27/04/2025,2425,2425,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,28/04/2025,2425,2426,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,29/04/2025,2425,2426,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,30/04/2025,2425,2426,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,06/05/2025,2425,2426,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,12/04/2025,2425,2425,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,16/04/2025,2425,2425,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,13/04/2025,2425,2425,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,19/04/2025,2425,2425,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,14/04/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,25/04/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,30/04/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,01/05/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,03/05/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,04/05/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,05/05/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,11/05/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,05/05/2025,2425,2425,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,17/04/2025,2425,2426,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,24/04/2025,2425,2426,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,26/04/2025,2425,2425,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,03/05/2025,2425,2426,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,07/05/2025,2425,2425,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,10/04/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,11/04/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,12/04/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,16/04/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,23/04/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,26/04/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,28/04/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,29/04/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,07/05/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,13/04/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,15/04/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,19/04/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,24/04/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,06/05/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,08/05/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,09/05/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,10/05/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,15/05/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,17/04/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,22/04/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,12/05/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,13/05/2023,2125,2125,2125,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,12/05/2025,2425,2425,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,11/04/2025,2425,2425,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,18/04/2025,2425,2426,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,20/04/2025,2425,2426,2425,1
+Haryana,Karnal,Kunjpura,Wheat,Other,FAQ,22/04/2025,2425,2426,2425,1
+Haryana,Karnal,"New Grain Market(main), Karnal",Wheat,Other,FAQ,10/04/2025,2425,2430,2427,1
+Haryana,Karnal,"New Grain Market(main), Karnal",Wheat,Other,FAQ,26/04/2025,2425,2435,2430,1
+Haryana,Karnal,"New Grain Market(main), Karnal",Wheat,Other,FAQ,27/04/2025,2425,2435,2430,1
+Haryana,Karnal,"New Grain Market(main), Karnal",Wheat,Other,FAQ,09/04/2025,2425,2430,2426,1
+Haryana,Karnal,"New Grain Market(main), Karnal",Wheat,Other,FAQ,06/04/2025,2425,2425,2425,1
+Haryana,Karnal,"New Grain Market(main), Karnal",Wheat,Other,FAQ,14/04/2025,2425,2430,2427,1
+Haryana,Karnal,"New Grain Market(main), Karnal",Wheat,Other,FAQ,16/04/2025,2425,2430,2427,1
+Haryana,Karnal,"New Grain Market(main), Karnal",Wheat,Other,FAQ,20/04/2025,2425,2430,2427,1
+Haryana,Karnal,"New Grain Market(main), Karnal",Wheat,Other,FAQ,23/04/2025,2425,2430,2427,1
+Haryana,Karnal,"New Grain Market(main), Karnal",Wheat,Other,FAQ,07/04/2025,2425,2432,2426,1
+Haryana,Karnal,"New Grain Market(main), Karnal",Wheat,Other,FAQ,15/04/2025,2425,2430,2427,1
+Haryana,Karnal,"New Grain Market(main), Karnal",Wheat,Other,FAQ,19/04/2025,2425,2430,2427,1
+Haryana,Karnal,"New Grain Market(main), Karnal",Wheat,Other,FAQ,22/04/2025,2425,2430,2427,1
+Haryana,Karnal,"New Grain Market(main), Karnal",Wheat,Other,FAQ,28/04/2025,2425,2435,2430,1
+Haryana,Karnal,"New Grain Market(main), Karnal",Wheat,Other,FAQ,03/05/2025,2425,2425,2425,1
+Haryana,Karnal,"New Grain Market(main), Karnal",Wheat,Other,FAQ,02/04/2025,2425,2425,2425,1
+Haryana,Karnal,"New Grain Market(main), Karnal",Wheat,Other,FAQ,29/04/2025,2425,2430,2430,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,10/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,13/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,17/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,18/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,12/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,15/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,16/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,28/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,10/05/2025,2425,2425,2425,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,15/05/2025,2425,2425,2425,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,25/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,01/05/2025,2425,2425,2425,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,05/05/2025,2425,2425,2425,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,11/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,19/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,21/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,24/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,27/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,14/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,20/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,22/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,25/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,29/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,30/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,26/04/2025,2425,2426,2425,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,14/05/2025,2425,2425,2425,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,26/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,02/05/2025,2425,2425,2425,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,03/05/2025,2425,2425,2425,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,06/05/2025,2425,2425,2425,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,12/05/2025,2425,2425,2425,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,28/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nigdu,Wheat,2329,FAQ,30/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,16/04/2024,2275,2275,2275,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,24/04/2024,2275,2275,2275,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,25/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,26/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,15/05/2023,2125,2125,2125,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,10/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,18/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,19/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,23/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,30/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,23/04/2024,2275,2275,2275,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,29/04/2024,2275,2275,2275,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,30/04/2024,2275,2275,2275,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,12/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,24/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,26/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,22/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,16/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,24/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,01/05/2023,2125,2125,2125,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,04/05/2023,2125,2125,2125,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,05/05/2025,2425,2425,2425,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,03/05/2024,2275,2275,2275,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,17/04/2024,2275,2275,2275,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,18/04/2024,2275,2275,2275,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,19/04/2024,2275,2280,2275,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,20/04/2024,2275,2275,2275,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,22/04/2024,2275,2280,2275,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,25/04/2024,2275,2275,2275,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,25/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,08/05/2025,2425,2425,2425,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,15/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,18/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,22/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,09/05/2023,2125,2125,2125,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,13/04/2024,2275,2275,2275,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,14/04/2024,2275,2275,2275,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,26/04/2024,2275,2275,2275,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,27/04/2024,2275,2275,2275,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,07/05/2024,2275,2275,2275,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,15/05/2024,2275,2275,2275,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,17/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,14/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,16/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,28/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,19/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,28/04/2023,2125,2125,2125,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,12/04/2024,2275,2275,2275,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,13/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,15/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,17/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nilokheri,Wheat,Other,FAQ,21/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nissing,Wheat,147 Average,FAQ,14/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nissing,Wheat,147 Average,FAQ,19/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nissing,Wheat,147 Average,FAQ,21/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nissing,Wheat,147 Average,FAQ,25/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nissing,Wheat,147 Average,FAQ,27/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nissing,Wheat,147 Average,FAQ,12/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nissing,Wheat,147 Average,FAQ,22/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nissing,Wheat,147 Average,FAQ,24/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nissing,Wheat,147 Average,FAQ,11/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nissing,Wheat,147 Average,FAQ,17/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nissing,Wheat,147 Average,FAQ,29/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nissing,Wheat,147 Average,FAQ,10/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nissing,Wheat,147 Average,FAQ,18/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nissing,Wheat,147 Average,FAQ,20/04/2025,2425,2425,2425,1
+Haryana,Karnal,Nissing,Wheat,147 Average,FAQ,26/04/2025,2425,2425,2425,1
+Haryana,Karnal,Tarori,Wheat,Other,FAQ,09/04/2025,2425,2425,2425,1

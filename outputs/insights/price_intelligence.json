@@ -1,0 +1,292 @@
+{
+  "generated_at": "2026-03-09T17:07:45.795939",
+  "dataset_insights": [
+    {
+      "key": "haryana_wheat",
+      "commodity": "Wheat",
+      "state": "Haryana",
+      "mean_price": 23.24,
+      "median_price": 24.25,
+      "max_price": 24.3,
+      "min_price": 21.25,
+      "volatility_cv": 5.86,
+      "stability_label": "highly stable",
+      "best_sell_months": [
+        "April",
+        "May"
+      ],
+      "worst_sell_months": [
+        "May",
+        "April"
+      ],
+      "best_market": "New Grain Market(Main), Karnal",
+      "peak_price_date": "04 Apr 2025",
+      "narratives": [
+        "Wheat prices in Haryana average \u20b923.24/kg (median \u20b924.25/kg).",
+        "Best months to sell Wheat in Haryana: April, May.",
+        "Avoid selling in May, April \u2014 historically lowest prices.",
+        "Highest ever recorded price: \u20b924.30/kg on 04 Apr 2025.",
+        "Price behaviour is highly stable (CV = 5.9%).",
+        "Market with highest average price: New Grain Market(Main), Karnal."
+      ]
+    },
+    {
+      "key": "haryana_tomato",
+      "commodity": "Tomato",
+      "state": "Haryana",
+      "mean_price": 22.13,
+      "median_price": 20.0,
+      "max_price": 120.0,
+      "min_price": 2.2,
+      "volatility_cv": 64.72,
+      "stability_label": "highly volatile",
+      "best_sell_months": [
+        "August",
+        "July",
+        "November"
+      ],
+      "worst_sell_months": [
+        "May",
+        "April"
+      ],
+      "best_market": "Gharaunda Apmc",
+      "peak_price_date": "28 Jul 2023",
+      "narratives": [
+        "Tomato prices in Haryana average \u20b922.13/kg (median \u20b920.00/kg).",
+        "Best months to sell Tomato in Haryana: August, July, November.",
+        "Avoid selling in May, April \u2014 historically lowest prices.",
+        "Highest ever recorded price: \u20b9120.00/kg on 28 Jul 2023.",
+        "Price behaviour is highly volatile (CV = 64.7%).",
+        "Market with highest average price: Gharaunda Apmc."
+      ]
+    },
+    {
+      "key": "haryana_onion",
+      "commodity": "Onion",
+      "state": "Haryana",
+      "mean_price": 20.58,
+      "median_price": 18.0,
+      "max_price": 60.0,
+      "min_price": 5.5,
+      "volatility_cv": 44.32,
+      "stability_label": "highly volatile",
+      "best_sell_months": [
+        "November",
+        "September",
+        "October"
+      ],
+      "worst_sell_months": [
+        "May",
+        "April"
+      ],
+      "best_market": "Gharaunda",
+      "peak_price_date": "01 Nov 2023",
+      "narratives": [
+        "Onion prices in Haryana average \u20b920.58/kg (median \u20b918.00/kg).",
+        "Best months to sell Onion in Haryana: November, September, October.",
+        "Avoid selling in May, April \u2014 historically lowest prices.",
+        "Highest ever recorded price: \u20b960.00/kg on 01 Nov 2023.",
+        "Price behaviour is highly volatile (CV = 44.3%).",
+        "Market with highest average price: Gharaunda."
+      ]
+    },
+    {
+      "key": "mumbai_wheat",
+      "commodity": "Wheat",
+      "state": "Mumbai",
+      "mean_price": 42.73,
+      "median_price": 44.0,
+      "max_price": 45.5,
+      "min_price": 25.0,
+      "volatility_cv": 5.43,
+      "stability_label": "highly stable",
+      "best_sell_months": [
+        "November",
+        "January",
+        "October"
+      ],
+      "worst_sell_months": [
+        "May",
+        "December"
+      ],
+      "best_market": "Mumbai",
+      "peak_price_date": "30 Mar 2024",
+      "narratives": [
+        "Wheat prices in Mumbai average \u20b942.73/kg (median \u20b944.00/kg).",
+        "Best months to sell Wheat in Mumbai: November, January, October.",
+        "Avoid selling in May, December \u2014 historically lowest prices.",
+        "Highest ever recorded price: \u20b945.50/kg on 30 Mar 2024.",
+        "Price behaviour is highly stable (CV = 5.4%).",
+        "Market with highest average price: Mumbai."
+      ]
+    },
+    {
+      "key": "mumbai_tomato",
+      "commodity": "Tomato",
+      "state": "Mumbai",
+      "mean_price": 24.17,
+      "median_price": 18.0,
+      "max_price": 95.0,
+      "min_price": 7.5,
+      "volatility_cv": 71.79,
+      "stability_label": "highly volatile",
+      "best_sell_months": [
+        "July",
+        "August",
+        "December"
+      ],
+      "worst_sell_months": [
+        "April",
+        "May"
+      ],
+      "best_market": "Mumbai Apmc",
+      "peak_price_date": "20 Jul 2023",
+      "narratives": [
+        "Tomato prices in Mumbai average \u20b924.17/kg (median \u20b918.00/kg).",
+        "Best months to sell Tomato in Mumbai: July, August, December.",
+        "Avoid selling in April, May \u2014 historically lowest prices.",
+        "Highest ever recorded price: \u20b995.00/kg on 20 Jul 2023.",
+        "Price behaviour is highly volatile (CV = 71.8%).",
+        "Market with highest average price: Mumbai Apmc."
+      ]
+    },
+    {
+      "key": "mumbai_onion",
+      "commodity": "Onion",
+      "state": "Mumbai",
+      "mean_price": 18.71,
+      "median_price": 15.5,
+      "max_price": 48.5,
+      "min_price": 7.5,
+      "volatility_cv": 49.84,
+      "stability_label": "highly volatile",
+      "best_sell_months": [
+        "November",
+        "October",
+        "September"
+      ],
+      "worst_sell_months": [
+        "April",
+        "May"
+      ],
+      "best_market": "Vashi New Mumbai",
+      "peak_price_date": "08 Nov 2024",
+      "narratives": [
+        "Onion prices in Mumbai average \u20b918.71/kg (median \u20b915.50/kg).",
+        "Best months to sell Onion in Mumbai: November, October, September.",
+        "Avoid selling in April, May \u2014 historically lowest prices.",
+        "Highest ever recorded price: \u20b948.50/kg on 08 Nov 2024.",
+        "Price behaviour is highly volatile (CV = 49.8%).",
+        "Market with highest average price: Vashi New Mumbai."
+      ]
+    }
+  ],
+  "comparative_insights": {
+    "most_stable": {
+      "key": "mumbai_wheat",
+      "commodity": "Wheat",
+      "state": "Mumbai",
+      "mean_price": 42.73,
+      "median_price": 44.0,
+      "max_price": 45.5,
+      "min_price": 25.0,
+      "volatility_cv": 5.43,
+      "stability_label": "highly stable",
+      "best_sell_months": [
+        "November",
+        "January",
+        "October"
+      ],
+      "worst_sell_months": [
+        "May",
+        "December"
+      ],
+      "best_market": "Mumbai",
+      "peak_price_date": "30 Mar 2024",
+      "narratives": [
+        "Wheat prices in Mumbai average \u20b942.73/kg (median \u20b944.00/kg).",
+        "Best months to sell Wheat in Mumbai: November, January, October.",
+        "Avoid selling in May, December \u2014 historically lowest prices.",
+        "Highest ever recorded price: \u20b945.50/kg on 30 Mar 2024.",
+        "Price behaviour is highly stable (CV = 5.4%).",
+        "Market with highest average price: Mumbai."
+      ]
+    },
+    "most_volatile": {
+      "key": "mumbai_tomato",
+      "commodity": "Tomato",
+      "state": "Mumbai",
+      "mean_price": 24.17,
+      "median_price": 18.0,
+      "max_price": 95.0,
+      "min_price": 7.5,
+      "volatility_cv": 71.79,
+      "stability_label": "highly volatile",
+      "best_sell_months": [
+        "July",
+        "August",
+        "December"
+      ],
+      "worst_sell_months": [
+        "April",
+        "May"
+      ],
+      "best_market": "Mumbai Apmc",
+      "peak_price_date": "20 Jul 2023",
+      "narratives": [
+        "Tomato prices in Mumbai average \u20b924.17/kg (median \u20b918.00/kg).",
+        "Best months to sell Tomato in Mumbai: July, August, December.",
+        "Avoid selling in April, May \u2014 historically lowest prices.",
+        "Highest ever recorded price: \u20b995.00/kg on 20 Jul 2023.",
+        "Price behaviour is highly volatile (CV = 71.8%).",
+        "Market with highest average price: Mumbai Apmc."
+      ]
+    },
+    "cheaper_by_crop": {
+      "Wheat": "Haryana",
+      "Tomato": "Haryana",
+      "Onion": "Mumbai"
+    },
+    "best_market_by_crop": {
+      "Wheat": "Mumbai",
+      "Tomato": "Gharaunda Apmc",
+      "Onion": "Gharaunda"
+    },
+    "narratives": [
+      "Most stable crop: Wheat in Mumbai (CV = 5.4%).",
+      "Most volatile crop: Tomato in Mumbai (CV = 71.8%).",
+      "Wheat is cheaper in Haryana compared to Mumbai.",
+      "Tomato is cheaper in Haryana compared to Mumbai.",
+      "Onion is cheaper in Mumbai compared to Haryana.",
+      "Highest average Wheat price market: Mumbai.",
+      "Highest average Tomato price market: Gharaunda Apmc.",
+      "Highest average Onion price market: Gharaunda."
+    ]
+  },
+  "qa": [
+    {
+      "question": "Which crop-state shows the highest price volatility?",
+      "answer": "Tomato in Mumbai (CV = 71.8%)"
+    },
+    {
+      "question": "Which market gives the highest average Tomato price?",
+      "answer": "Gharaunda Apmc (Haryana)"
+    },
+    {
+      "question": "Which state has cheaper Wheat?",
+      "answer": "Haryana \u2014 avg \u20b923.24/kg vs \u20b942.73/kg"
+    },
+    {
+      "question": "What is the best month to sell Onion (both states combined)?",
+      "answer": "November"
+    },
+    {
+      "question": "What is the highest single price ever recorded?",
+      "answer": "\u20b9120.00/kg \u2014 Tomato at Gharaunda on 28 Jul 2023"
+    },
+    {
+      "question": "Which market has the most price records (most active)?",
+      "answer": "New Grain Market(Main), Karnal"
+    }
+  ]
+}
