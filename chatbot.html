@@ -1,215 +1,308 @@
 <style>
-#ph-chat-btn{
-position:fixed;
-bottom:20px;
-right:20px;
-width:70px;
-height:70px;
-border-radius:50%;
-background:#2e7d32;
-color:white;
-border:none;
-font-size:30px;
-cursor:pointer;
-z-index:999999999;
-}
-
-#ph-chat-container{
-position:fixed;
-bottom:100px;
-right:20px;
-width:360px;
-height:520px;
-background:white;
-border-radius:15px;
-overflow:hidden;
-display:flex;
-flex-direction:column;
-z-index:999999999;
-font-family:Arial;
-box-shadow:0 5px 20px rgba(0,0,0,0.4);
-}
-
-#ph-chat-header{
-background:#2e7d32;
-color:white;
-padding:15px;
-font-size:20px;
-font-weight:bold;
-}
-
-#ph-chat-messages{
-flex:1;
-padding:10px;
-overflow-y:auto;
-background:#f5f5f5;
-}
-
-.ph-msg{
-margin:10px 0;
-padding:10px;
-border-radius:10px;
-max-width:80%;
-}
-
-.user-msg{
-background:#c8e6c9;
-margin-left:auto;
-}
-
-.bot-msg{
-background:white;
-border:1px solid #ddd;
-}
-
-#ph-chat-input-area{
-display:flex;
-border-top:1px solid #ddd;
-}
-
-#ph-chat-input{
-flex:1;
-padding:12px;
-border:none;
-outline:none;
-}
-
-#ph-send-btn{
-background:#2e7d32;
-color:white;
-border:none;
-padding:0 20px;
-cursor:pointer;
-}
+    #ph-chat-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: #2e7d32;
+        color: white;
+        border: none;
+        font-size: 30px;
+        cursor: pointer;
+        z-index: 999999999;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    #ph-chat-container {
+        position: fixed;
+        bottom: 100px;
+        right: 20px;
+        width: 360px;
+        height: 520px;
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        display: none;
+        flex-direction: column;
+        z-index: 999999999;
+        font-family: Arial;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    }
+    
+    #ph-chat-container.open {
+        display: flex;
+    }
+    
+    #ph-chat-header {
+        background: #2e7d32;
+        color: white;
+        padding: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    #ph-chat-close {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        line-height: 1;
+    }
+    
+    #ph-chat-messages {
+        flex: 1;
+        padding: 10px;
+        overflow-y: auto;
+        background: #f5f5f5;
+    }
+    
+    .ph-msg {
+        margin: 10px 0;
+        padding: 10px 12px;
+        border-radius: 10px;
+        max-width: 85%;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    
+    .user-msg {
+        background: #c8e6c9;
+        margin-left: auto;
+    }
+    
+    .bot-msg {
+        background: white;
+        border: 1px solid #ddd;
+    }
+    
+    #ph-chat-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        padding: 10px;
+        border-top: 1px solid #ddd;
+        background: white;
+        max-height: 180px;
+        overflow-y: auto;
+    }
+    
+    .ph-option-btn {
+        background: #e8f5e9;
+        border: 1px solid #2e7d32;
+        color: #2e7d32;
+        padding: 6px 10px;
+        border-radius: 15px;
+        font-size: 12px;
+        cursor: pointer;
+        text-align: left;
+    }
+    
+    .ph-option-btn:hover {
+        background: #2e7d32;
+        color: white;
+    }
+    
+    #ph-restart-btn {
+        margin: 6px 10px 10px;
+        background: none;
+        border: none;
+        color: #777;
+        font-size: 12px;
+        text-decoration: underline;
+        cursor: pointer;
+        align-self: flex-start;
+    }
 </style>
+
+<button id="ph-chat-btn">💬</button>
 
 <div id="ph-chat-container">
 
-<div id="ph-chat-header">
-🌾 PriceHarvest AI
-</div>
+    <div id="ph-chat-header">
+        <span>🌾 PriceHarvest Assistant</span>
+        <button id="ph-chat-close">✕</button>
+    </div>
 
-<div id="ph-chat-messages">
+    <div id="ph-chat-messages">
+        <div class="ph-msg bot-msg">
+            Hi! I'm the PriceHarvest assistant 🌾 Pick a question below and I'll answer instantly — no external AI service involved, so nothing you type ever leaves this page.
+        </div>
+    </div>
 
-<div class="ph-msg bot-msg">
-Hello! I’m PriceHarvest AI 🌾
-</div>
+    <button id="ph-restart-btn">⟲ Start over</button>
 
-</div>
-
-<div id="ph-chat-input-area">
-
-<input
-type="text"
-id="ph-chat-input"
-placeholder="Ask something..."
->
-
-<button id="ph-send-btn">
-Send
-</button>
-
-</div>
+    <div id="ph-chat-options"></div>
 
 </div>
 
 <script>
+    (function() {
 
-const sendBtn =
-document.getElementById("ph-send-btn");
+        // ---- Q&A KNOWLEDGE BASE (static, no external calls) ----
+        const KB = {
+            root: {
+                prompt: "What would you like to know?",
+                options: [{
+                    label: "📊 What is PriceHarvest?",
+                    key: "about"
+                }, {
+                    label: "🌱 Which crops & cities?",
+                    key: "scope"
+                }, {
+                    label: "🧠 What ML models are used?",
+                    key: "models"
+                }, {
+                    label: "📈 What analysis is done?",
+                    key: "analysis"
+                }, {
+                    label: "💼 Power BI dashboard?",
+                    key: "powerbi"
+                }, {
+                    label: "🌐 Languages supported?",
+                    key: "languages"
+                }, {
+                    label: "👥 Who built this?",
+                    key: "team"
+                }, {
+                    label: "🏫 Which college/course?",
+                    key: "college"
+                }]
+            },
+            about: {
+                answer: "PriceHarvest is an agricultural data analysis and price-prediction platform built as a B.Tech Data Science mini project. It uses real crop price data from the Agmarknet Portal (Govt. of India) and combines EDA, time-series analysis, Power BI reporting, and ML-based forecasting into one platform.",
+                options: [{
+                    label: "🌱 Which crops & cities?",
+                    key: "scope"
+                }, {
+                    label: "🧠 What ML models are used?",
+                    key: "models"
+                }]
+            },
+            scope: {
+                answer: "Data covers 3 crops — Onion, Potato, Cabbage — across 3 Maharashtra cities — Mumbai, Nagpur, Nashik — using daily Modal Price data from Jan 2021 to June 2026 (~5.5 years) sourced from Agmarknet.",
+                options: [{
+                    label: "🧠 What ML models are used?",
+                    key: "models"
+                }, {
+                    label: "📈 What analysis is done?",
+                    key: "analysis"
+                }]
+            },
+            models: {
+                answer: "Phase 2 forecasting uses XGBoost and Prophet for each city–crop combination, with careful feature engineering (e.g. shifted rolling windows to avoid data leakage) and recursive multi-step forecasting.",
+                options: [{
+                    label: "📈 What analysis is done?",
+                    key: "analysis"
+                }, {
+                    label: "💼 Power BI dashboard?",
+                    key: "powerbi"
+                }]
+            },
+            analysis: {
+                answer: "The project performs data preprocessing, exploratory data analysis (trends, seasonality, volatility, year-wise & city-wise comparisons, moving averages), interactive dashboards, and a machine-learning forecasting layer on top of the historical analysis.",
+                options: [{
+                    label: "💼 Power BI dashboard?",
+                    key: "powerbi"
+                }, {
+                    label: "🌐 Languages supported?",
+                    key: "languages"
+                }]
+            },
+            powerbi: {
+                answer: "A Power BI dashboard covers 9 city–crop datasets with DAX measures and interactive filters, embedded directly into the website alongside a Streamlit-based data dashboard.",
+                options: [{
+                    label: "🌐 Languages supported?",
+                    key: "languages"
+                }, {
+                    label: "👥 Who built this?",
+                    key: "team"
+                }]
+            },
+            languages: {
+                answer: "The website supports multilingual accessibility via Google Translate integration, covering English, Hindi, and Marathi.",
+                options: [{
+                    label: "👥 Who built this?",
+                    key: "team"
+                }, {
+                    label: "🏫 Which college/course?",
+                    key: "college"
+                }]
+            },
+            team: {
+                answer: "Built by a 3-member team: Sakshi Jagdish Patil , Purva Atul Pawar and Siddhi Jagdish Shinde",
+                options: [{
+                    label: "🏫 Which college/course?",
+                    key: "college"
+                }, {
+                    label: "📊 What is PriceHarvest?",
+                    key: "about"
+                }]
+            },
+            college: {
+                answer: "This is a B.Tech Data Science mini project from the Usha Mittal Institute of Technology, S.N.D.T. Women's University.",
+                options: [{
+                    label: "📊 What is PriceHarvest?",
+                    key: "about"
+                }, {
+                    label: "🌱 Which crops & cities?",
+                    key: "scope"
+                }]
+            }
+        };
 
-const input =
-document.getElementById("ph-chat-input");
+        const btn = document.getElementById("ph-chat-btn");
+        const container = document.getElementById("ph-chat-container");
+        const closeBtn = document.getElementById("ph-chat-close");
+        const messages = document.getElementById("ph-chat-messages");
+        const optionsBar = document.getElementById("ph-chat-options");
+        const restartBtn = document.getElementById("ph-restart-btn");
 
-const messages =
-document.getElementById("ph-chat-messages");
+        function addMessage(text, type) {
+            const msg = document.createElement("div");
+            msg.classList.add("ph-msg", type);
+            msg.textContent = text;
+            messages.appendChild(msg);
+            messages.scrollTop = messages.scrollHeight;
+        }
 
-function addMessage(text,type){
+        function renderOptions(node) {
+            optionsBar.innerHTML = "";
+            (node.options || []).forEach(opt => {
+                const b = document.createElement("button");
+                b.classList.add("ph-option-btn");
+                b.textContent = opt.label;
+                b.onclick = () => selectOption(opt);
+                optionsBar.appendChild(b);
+            });
+        }
 
-const msg =
-document.createElement("div");
+        function selectOption(opt) {
+            addMessage(opt.label.replace(/^[^\w]+/, "").trim(), "user-msg");
+            const node = KB[opt.key];
+            addMessage(node.answer, "bot-msg");
+            renderOptions(node);
+        }
 
-msg.classList.add("ph-msg");
-msg.classList.add(type);
+        function start() {
+            messages.innerHTML = "";
+            addMessage("Hi! I'm the PriceHarvest assistant 🌾 Pick a question below and I'll answer instantly — no external AI service involved, so nothing you type ever leaves this page.", "bot-msg");
+            renderOptions(KB.root);
+        }
 
-msg.innerHTML=text;
+        btn.onclick = () => {
+            container.classList.toggle("open");
+            if (container.classList.contains("open") && optionsBar.children.length === 0) {
+                renderOptions(KB.root);
+            }
+        };
+        closeBtn.onclick = () => container.classList.remove("open");
+        restartBtn.onclick = start;
 
-messages.appendChild(msg);
-
-messages.scrollTop=
-messages.scrollHeight;
-
-}
-
-async function askAI(message){
-
-const response = await fetch(
-`https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=AIzaSyAmfspr7UGkYLZ9flfNUJ-w8ngRfNubmds`,
-{
-method:"POST",
-
-headers:{
-"Content-Type":"application/json"
-},
-
-body:JSON.stringify({
-contents:[
-{
-parts:[
-{
-text:"Reply shortly: "+message
-}
-]
-}
-]
-})
-
-}
-);
-
-const data =
-await response.json();
-
-console.log(data);
-
-return data.candidates[0]
-.content.parts[0].text;
-
-}
-
-async function sendMessage(){
-
-const text=input.value.trim();
-
-if(!text) return;
-
-addMessage(text,"user-msg");
-
-input.value="";
-
-try{
-
-const reply=
-await askAI(text);
-
-addMessage(reply,"bot-msg");
-
-}
-
-catch(error){
-
-addMessage(
-"AI Error",
-"bot-msg"
-);
-
-console.log(error);
-
-}
-
-}
-
-sendBtn.onclick=
-sendMessage;
-
+    })();
 </script>
