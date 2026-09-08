@@ -1,178 +1,359 @@
-# 🌾 PriceHarvest — Crop Price Analysis & Trend Identification
+# 🌾 PriceHarvest — Agricultural Crop Price Analysis & Prediction
 
-**BTech Mini Project | Data Science | SNDT Women's University**  
-**Phase 1: EDA, Time-Series Analysis & Interactive Dashboard**
+**B.Tech Project  | Data Science | Usha Mittal Institute of Technology, S.N.D.T. Women's University**
+
+PriceHarvest is an integrated agricultural crop price analysis and prediction platform. It combines data preprocessing, Exploratory Data Analysis (EDA), time-series analysis, interactive visualization, a chatbot, multilingual accessibility, and machine learning-based crop price prediction.
+
+The project uses agricultural market data from the **Agmarknet Portal, Government of India**.
 
 ---
 
-## 👥 Team
+## 🎯 Project Objective
 
-| Name | Roll No | Contribution |
-|---|---|---|
-| Sakshi Jagdish Patil | 51 | Data preprocessing, EDA, seasonal trend analysis |
-| Purva Atul Pawar | 54 | Dashboard development, interactive visualizations |
-| Siddhi Jagdish Shinde | 68 | Website design, documentation, time-series analysis |
+Agricultural crop prices fluctuate due to seasonality, supply and demand, market conditions, transportation, and regional differences. PriceHarvest transforms raw agricultural market records into meaningful, accessible insights and predictions by providing:
+
+* 📊 Exploratory Data Analysis
+* 📈 Crop price trend analysis
+* 📅 Seasonal and time-series analysis
+* 🏙️ City-wise comparison
+* 📉 Price behaviour and volatility analysis
+* 📊 Interactive dashboard (Streamlit)
+* 💼 Interactive business intelligence reports
+* 🤖 Chatbot assistance
+* 🌐 Multilingual accessibility (English, Hindi, Marathi)
+* 🧠 Machine learning-based crop price prediction (XGBoost + Prophet)
+
+---
+
+## 📍 Dataset Scope
+
+| Attribute                  | Scope                                        |
+| --------------------------- | --------------------------------------------- |
+| **Data Source**             | Agmarknet, Government of India                |
+| **Study Period**            | January 2021 – June 2026                      |
+| **Duration**                | Approximately 5.5 years                       |
+| **Cities**                  | Mumbai, Nagpur, Nashik                        |
+| **Crops**                   | Onion, Potato, Cabbage                        |
+| **City–Crop Combinations**  | 9 (3 crops × 3 cities)                        |
+| **Analysis Level**          | City–Crop                                     |
+| **Primary Price Variable**  | Modal Price                                   |
+| **Data Type**               | Agricultural market price records             |
+
+> **Note:** Exact record counts are not hard-coded here, as the dataset is periodically updated.
+
+---
+
+## 🌱 Crops & Cities
+
+**Crops:** 🧅 Onion · 🥔 Potato · 🥬 Cabbage
+**Cities:** 📍 Mumbai · 📍 Nagpur · 📍 Nashik
+
+This gives **9 City–Crop combinations** for the machine learning prediction component.
+
+---
+
+## 🔬 Analysis Performed
+
+### 1. Data Preprocessing
+* Date conversion and validation
+* Price validation (invalid observations removed using min/max/modal logic)
+* Selection of relevant columns
+* Market/grade standardization
+* Duplicate handling
+* Chronological sorting
+* City and crop labelling
+* Daily City–Crop time-series construction (missing dates handled)
+
+### 2. Exploratory Data Analysis (EDA)
+* Statistical summaries
+* Daily price trends
+* Monthly price distributions
+* Seasonal patterns
+* Year-wise comparison
+* Moving-average analysis (30-day, 90-day)
+* City-wise and crop-wise comparison
+* Identification of unusual/anomalous observations
+* Price volatility analysis
+
+### 3. Time-Series Analysis
+* Daily, monthly, and year-wise price movement
+* Seasonal behaviour
+* Moving averages
+* City–Crop trend comparison
+
+---
+
+## 🧠 Machine Learning & Prediction
+
+The prediction pipeline covers all **9 City–Crop combinations** (Onion, Potato, Cabbage × Mumbai, Nagpur, Nashik).
+
+**Feature Engineering:**
+* Calendar features — year, month, day, day of week, day of year, week, quarter, month start/end, weekend indicator
+* Lag features — 1, 2, 3, 7, 14, 21, 30 days
+* Rolling statistics — mean, std, min, max over 7/14/30-day windows (current day excluded to prevent leakage)
+* Price-change features — % change over 1/7/30 days, plus expanding mean (using only past observations)
+
+**Train/Test Split:** Chronological — training on Jan 2021–Dec 2025, testing on Jan–Jun 2026.
+
+**Models:**
+* **XGBoost regression** — separate model trained per City–Crop combination using engineered historical/temporal features
+* **Prophet** — complementary time-series forecasting for trend, seasonality, and future price estimates
+
+**Evaluation Metrics:** MAE (Mean Absolute Error) and MAPE (Mean Absolute Percentage Error)
+
+### XGBoost Prediction Performance
+
+| Crop    | City    | MAE       | MAPE     |
+| ------- | ------- | --------: | -------: |
+| Onion   | Mumbai  | 157.0     | 7.7%     |
+| Onion   | Nagpur  | 359.6     | 13.4%    |
+| Onion   | Nashik  | 1,487,105.5 | 70,781.1% |
+| Potato  | Mumbai  | 192.5     | 21.1%    |
+| Potato  | Nagpur  | 232.5     | 12.4%    |
+| Potato  | Nashik  | 246.7     | 29.5%    |
+| Cabbage | Mumbai  | 121.5     | 16.90%   |
+| Cabbage | Nagpur  | 124.5     | 12.53%   |
+| Cabbage | Nashik  | 163.9     | 23.15%   |
+
+> ⚠️ **Nashik–Onion** shows a substantially higher error, traced to an anomalous observation in the underlying data that distorted lag/rolling features. Improved outlier detection and data validation for this case is a priority for the next phase.
+
+**Feature Importance:** Lag features and rolling statistics were among the most influential features across several City–Crop models, indicating that recent price behaviour strongly drives predictions.
+
+---
+
+## 📊 Interactive Dashboard
+
+The Streamlit dashboard lets users explore crop price trends, compare cities, and view seasonal behaviour and analytical insights interactively.
+
+## 💼 Power BI Dashboard
+
+Power BI provides business intelligence reporting with commodity-wise, city/district-level, monthly, and year-wise analysis, plus interactive filters and visual comparisons.
+
+## 🤖 AI Chatbot
+
+An AI-powered chatbot (Google Gemini API) is integrated into the website to assist users with dashboard navigation, agricultural analysis, and project information.
+
+## 🌐 Multilingual Support
+
+The interface supports 🇬🇧 English, 🇮🇳 Hindi, and 🇮🇳 Marathi (via Google Translate).
+
+---
+
+## 🏗️ Project Workflow
+
+```text
+Agmarknet Agricultural Data
+            ↓
+     Data Collection
+            ↓
+    Data Preprocessing
+            ↓
+   Data Validation & Cleaning
+            ↓
+   Daily Time-Series Creation
+            ↓
+ Exploratory Data Analysis
+            ↓
+ Time-Series & Seasonal Analysis
+            ↓
+ City–Crop Comparison
+            ↓
+ Feature Engineering
+            ↓
+ Chronological Train/Test Split
+            ↓
+ XGBoost Regression + Prophet Forecasting
+            ↓
+ Model Evaluation (MAE, MAPE) & Feature Importance
+            ↓
+ ┌───────────────────────────────┐
+ │                               │
+ ▼                               ▼
+Streamlit Dashboard          Power BI
+ │                               │
+ └──────────────┬────────────────┘
+                ↓
+        PriceHarvest Website
+                ↓
+       AI Chatbot + Multilingual
+```
 
 ---
 
 ## 📁 Project Structure
 
-```
+```text
 PriceHarvest/
-├── data/                        ← Raw CSV datasets (from Agmarknet)
-│   ├── haryana_wheat.csv
-│   ├── haryana_tomato.csv
-│   ├── haryana_onion.csv
-│   ├── mumbai_wheat.csv
-│   ├── mumbai_tomato.csv
-│   └── mumbai_onion.csv
 │
-├── src/                         ← Python source modules
-│   ├── preprocessing.py         ← Module 1: Data loading & cleaning
-│   ├── features.py              ← Module 2: Feature engineering
-│   ├── eda.py                   ← Module 3: Individual crop EDA charts
-│   ├── comparison.py            ← Module 4: Haryana vs Mumbai comparison
-│   ├── timeseries.py            ← Module 5: Time-series analysis
-│   ├── insights.py              ← Module 6: Intelligence report engine
-│   └── advanced_viz.py          ← Module 7: Advanced visualizations
+├── data/
+│   ├── onion/
+│   ├── potato/
+│   └── cabbage/
+│
+├── src/
+│   ├── preprocessing.py
+│   ├── features.py
+│   ├── eda.py
+│   ├── comparison.py
+│   ├── timeseries.py
+│   ├── insights.py
+│   └── advanced_viz.py
 │
 ├── eda/
-│   └── eda_analysis.ipynb       ← Jupyter notebook with all EDA steps
+│   └── eda_analysis.ipynb
+│
+├── ml/
+│   └── prediction notebooks / models (XGBoost, Prophet)
 │
 ├── dashboard/
-│   └── app.py                   ← Streamlit interactive dashboard
+│   └── app.py
 │
 ├── website/
-│   ├── index.html               ← Professional project website
-│   ├── style.css                ← Website styling
-│   ├── script.js                ← Website animations & interactivity
-│   └── images/                  ← EDA chart images for website
+│   ├── index.html
+│   ├── style.css
+│   ├── script.js
+│   └── images/
 │
 ├── outputs/
-│   ├── charts/                  ← All generated chart PNGs
-│   └── insights/                ← Intelligence reports (JSON + TXT)
+│   ├── charts/
+│   ├── insights/
+│   └── predictions/
 │
-├── main.py                      ← Master pipeline runner
-├── requirements.txt             ← Python dependencies
-└── README.md                    ← This file
+├── main.py
+├── requirements.txt
+└── README.md
 ```
+
+> File names may vary depending on the latest implementation of the project repository.
 
 ---
 
-## 🚀 Quick Start (VS Code)
+## 🚀 Quick Start
 
-### Step 1 — Open Project
+### 1. Clone / Open the Project
 ```bash
-# Open VS Code, then open the PriceHarvest folder
-code PriceHarvest/
+git clone <repository-url>
+cd PriceHarvest
 ```
 
-### Step 2 — Install Dependencies
+### 2. Install Dependencies
 ```bash
-# Open VS Code terminal (Ctrl + `)
 pip install -r requirements.txt
 ```
 
-### Step 3 — Run the Full EDA Pipeline
+### 3. Run the Analysis Pipeline
 ```bash
-# From PriceHarvest/ folder
 python main.py
 ```
-This generates all charts into `outputs/charts/` and saves the intelligence report.
 
-### Step 4 — Open the EDA Notebook
+### 4. Open the EDA Notebook
 ```bash
-# From PriceHarvest/ folder
 jupyter notebook eda/eda_analysis.ipynb
 ```
-Or open it directly in VS Code with the Jupyter extension.
 
-### Step 5 — Run the Interactive Dashboard
+### 5. Run the Streamlit Dashboard
 ```bash
-# From PriceHarvest/ folder
 streamlit run dashboard/app.py
 ```
-Opens at: **http://localhost:8501**
+Available at `http://localhost:8501`
 
-### Step 6 — Preview the Website
-- Right-click `website/index.html` in VS Code
-- Click **"Open with Live Server"**
-- (Install the Live Server extension from VS Code Extensions if needed)
+### 6. Open the Website
+Open `website/index.html` (use the **Live Server** extension in VS Code for local development).
 
 ---
 
-## 📊 Dataset
+## 🛠️ Technologies Used
 
-**Source:** [Agmarknet Portal, Government of India](https://agmarknet.gov.in)
-
-| Field | Description |
-|---|---|
-| `Arrival_Date` | Date of price record at market |
-| `State` | Haryana or Maharashtra |
-| `District` | District within the state |
-| `Market` | APMC / Mandi name |
-| `Commodity` | Crop: Wheat / Tomato / Onion |
-| `Min_Price` | Minimum price (₹/Quintal) |
-| `Max_Price` | Maximum price (₹/Quintal) |
-| `Modal_Price` | Most common transaction price (₹/Quintal) |
-
-**Coverage:** January 2023 – December 2025 · 7,497 records · 3 crops · 2 states
+**Programming & Data Analysis:** Python, Pandas, NumPy
+**Visualization:** Matplotlib, Seaborn, Plotly
+**Machine Learning / Forecasting:** XGBoost, Prophet, Scikit-learn
+**Dashboard & BI:** Streamlit, Microsoft Power BI
+**Web Development:** HTML, CSS, JavaScript
+**AI & Accessibility:** Google Gemini API, Google Translate
+**Dev Tools:** Jupyter Notebook, VS Code, Git/GitHub
 
 ---
 
-## 💡 Key Findings (Phase 1)
+## 📌 Project Status
 
-| Finding | Detail |
-|---|---|
-| **Most Volatile Crop** | Tomato (CV = 71.8% in Mumbai) |
-| **Most Stable Crop** | Wheat (CV = 5.4% in Mumbai) |
-| **Biggest Regional Gap** | Wheat 84% costlier in Mumbai vs Haryana |
-| **Best Month for Onion** | November (post-Kharif peak) |
-| **Tomato Peaks** | July–August (monsoon disruptions) |
-| **Highest Price Ever** | ₹120/kg Tomato at Gharaunda — Jul 2023 |
-| **Price Correlation** | Min ↔ Modal price: r = 0.94 |
-
----
-
-## 🛠️ Tools & Technologies
-
-- **Python 3.10+** — Core programming
-- **Pandas & NumPy** — Data manipulation
-- **Matplotlib & Seaborn** — Static visualizations
-- **Streamlit** — Interactive dashboard
-- **Plotly** — Interactive charts (Phase 2)
-- **Jupyter Notebook** — EDA documentation
-- **VS Code** — Development environment
+| Component                                       | Status            |
+| ------------------------------------------------ | ----------------- |
+| Agricultural data collection                      | ✅ Completed       |
+| Data preprocessing                                 | ✅ Completed       |
+| Exploratory Data Analysis                          | ✅ Completed       |
+| Time-series analysis                               | ✅ Completed       |
+| City-wise and crop-wise analysis                   | ✅ Completed       |
+| Streamlit dashboard                                | ✅ Completed       |
+| Power BI reporting                                 | ✅ Completed       |
+| AI chatbot                                         | ✅ Completed       |
+| Multilingual interface (English, Hindi, Marathi)   | ✅ Completed       |
+| ML prediction (XGBoost, 9 City–Crop combinations)  | ✅ Completed       |
+| Prophet-based forecasting                          | ✅ Completed       |
+| Model evaluation (MAE, MAPE) & feature importance  | ✅ Completed       |
+| Nashik–Onion outlier handling / data validation    | 🟡 In Progress    |
+| Prediction results integration into website        | 🔜 Upcoming       |
 
 ---
 
-## 🗺️ Phase Roadmap
+## 🗺️ Development Roadmap
 
-### ✅ Phase 1
-- [x] Data preprocessing & cleaning
-- [x] Feature engineering (rolling stats, volatility index)
-- [x] Individual crop EDA (6 chart types per dataset)
-- [x] State comparison analysis
-- [x] Time-series decomposition & forecasting
-- [x] Price intelligence insights engine
-- [x] Streamlit interactive dashboard
-- [x] Professional project website
+### ✅ Completed
+* Agricultural data collection, preprocessing, and cleaning
+* Exploratory Data Analysis and seasonal trend analysis
+* City-wise and crop-wise analysis, interactive visualizations
+* Streamlit dashboard, Power BI integration
+* AI chatbot integration
+* English, Hindi, Marathi interfaces
+* Feature engineering (calendar, lag, rolling, price-change)
+* XGBoost regression across 9 City–Crop combinations
+* Prophet-based forecasting
+* Model evaluation (MAE, MAPE) and feature importance analysis
 
-### 🔜 Phase 2 
-- [ ] More data added for better evaluation
-- [ ] Power Bi intigration 
-- [ ] Multi language support
-- [ ] AI chatbot for user guidance
+### 🟡 Currently in Development
+* Improved outlier detection and data validation (esp. Nashik–Onion)
+* Integrating finalized prediction/forecast results into the website
+
+### 🔜 Future Scope
+* Incorporate weather and rainfall information
+* Include agricultural production and market-arrival variables
+* Compare additional machine learning and forecasting models
+* Improve handling of extreme price observations
+* Automated data updates
+* Real-time / near-real-time crop price prediction
+* Expand to additional crops, cities, and markets
+* Expanded chatbot and multilingual capabilities
 
 ---
 
-## 📄 References
+## 📚 Data Source
 
-- Agmarknet Portal, Government of India — https://agmarknet.gov.in
-- Ministry of Agriculture & Farmers Welfare, Government of India
-- Streamlit Documentation — https://docs.streamlit.io
-- Scikit-learn Documentation — https://scikit-learn.org
+**Agmarknet — Agricultural Marketing Information Network**, Government of India. Datasets contain agricultural market price information collected from Agricultural Produce Market Committees (APMCs).
 
 ---
 
-*Department of Data Science and Engineering | Usha Mittal Institute of Technology | SNDT Women's University | Academic Year 2026–27*
+## 📖 References
+
+* Agmarknet — Government of India
+* Ministry of Agriculture & Farmers Welfare, Government of India
+* Streamlit Documentation
+* Scikit-learn Documentation
+* XGBoost Documentation
+* Prophet (Facebook/Meta) Documentation
+* Latex Documentation
+
+---
+
+## 🎓 Academic Information
+
+**Project:** PriceHarvest — Agricultural Crop Price Analysis & Prediction
+**Degree:** Bachelor of Technology in Data Science
+**Department:** Data Science and Engineering
+**Institute:** Usha Mittal Institute of Technology
+**University:** S.N.D.T. Women's University
+**Academic Year:** 2025–26
+
+---
+
+## 🌾 About PriceHarvest
+
+PriceHarvest brings together agricultural data, exploratory analysis, time-series analysis, business intelligence, AI assistance, and machine learning into a single platform — making historical agricultural market data easier to explore, compare, understand, and use for crop price prediction.
